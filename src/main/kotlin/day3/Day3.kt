@@ -71,27 +71,6 @@ data class Schematics(
     return false
   }
 
-  private fun isGear(lineNumber: Int, index: Int): Boolean {
-    return lines[lineNumber][index] == '*'
-  }
-
-  private fun getSurroundingNumbers(lineNumber: Int, index: Int): List<Int> {
-    return lines[lineNumber][index] == '*'
-  }
-
-  private fun findNumber(lineNumber: Int, index: Int): Int? {
-    if (!lines[lineNumber][index].isDigit())
-      return null
-
-    var digitString = ""+lines[lineNumber][index]
-
-    findDigit(lineNumber, index-1)?.let {
-      digitString = it + digitString
-    }
-
-
-  }
-
   private fun isSymbol(lineNumber: Int, index: Int): Boolean {
     if (lineNumber < 0 || index < 0 || lines.size <= lineNumber || lines[lineNumber].length <= index)
       return false
