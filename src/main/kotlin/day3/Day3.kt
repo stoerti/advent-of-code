@@ -1,9 +1,9 @@
-package day3
+package io.github.stoerti.aoc.day3
+
+import io.github.stoerti.aoc.IOUtils
 
 fun main(args: Array<String>) {
-  val fileContent = Day3::class.java.getResource("../day_3_input.txt")!!.readText()
-
-  val schematics = Schematics(fileContent.split("\n"))
+  val schematics = Schematics(IOUtils.readInput("day_3_input"))
 
   val result1 = schematics.lines.mapIndexed { index, _ -> schematics.scanForPartNumbers(index) }
     .onEach { println(it) }

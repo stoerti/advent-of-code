@@ -1,13 +1,13 @@
-package day2
+package io.github.stoerti.aoc.day2
+
+import io.github.stoerti.aoc.IOUtils
 
 fun main(args: Array<String>) {
   val redLimit = 12
   val greenLimit = 13
   val blueLimit = 14
 
-  val fileContent = Any::class.java.getResource("day_2_input.txt")!!.readText()
-
-  val games = fileContent.split("\n")
+  val games = IOUtils.readInput("day_2_input")
     .map { Game.fromString(it) }
 
   val result1 = games

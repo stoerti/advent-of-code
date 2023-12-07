@@ -1,10 +1,10 @@
-package day1
+package io.github.stoerti.aoc.day1
+
+import io.github.stoerti.aoc.IOUtils
 
 fun main(args: Array<String>) {
 
-  val fileContent = Any::class.java.getResource("day_1_input.txt")!!.readText()
-
-  val result = fileContent.split("\n")
+  val result = IOUtils.readInput("day_1_input")
     .map {
       it
         .replace("oneight", "18")

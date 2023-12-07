@@ -1,16 +1,16 @@
 package day5
 
+import io.github.stoerti.aoc.IOUtils
+import io.github.stoerti.aoc.StringExt.longValues
 import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.sqrt
 
 fun main(args: Array<String>) {
-  val lines = object {}.javaClass.getResourceAsStream("../day_6_input.txt")!!
-    .bufferedReader()
-    .readLines().toMutableList().also { it.add("") }
+  val lines = IOUtils.readInput("day_6_input").toMutableList().also { it.add("") }
 
-  val raceTimes = lines[0].removePrefix("Time:").split(" ").filter { it.isNotBlank() }.map { it.toLong() }
-  val distancesToBeat = lines[1].removePrefix("Distance:").split(" ").filter { it.isNotBlank() }.map { it.toLong() }
+  val raceTimes = lines[0].removePrefix("Time:").longValues()
+  val distancesToBeat = lines[1].removePrefix("Distance:").longValues()
 
   val races = raceTimes.mapIndexed { index, time -> Race(time, distancesToBeat[index])}
 

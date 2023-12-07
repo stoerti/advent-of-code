@@ -1,14 +1,14 @@
-package day5
+package io.github.stoerti.aoc.day5
 
+import io.github.stoerti.aoc.IOUtils
+import io.github.stoerti.aoc.StringExt.longValues
 import java.util.ListResourceBundle
 import java.util.Locale
 
 fun main(args: Array<String>) {
-  val lines = object {}.javaClass.getResourceAsStream("../day_5_input.txt")!!
-    .bufferedReader()
-    .readLines().toMutableList().also { it.add("") }
+  val lines = IOUtils.readInput("day_5_input").toMutableList().also { it.add("") }
 
-  val seeds = lines.removeAt(0).substring(7).split(" ").filter { it.isNotBlank() }.map { it.trim().toLong() }
+  val seeds = lines.removeAt(0).substring(7).longValues()
   lines.removeAt(0) // remove next empty line too
 
   val mappings = mutableMapOf<String, Mapping>()
