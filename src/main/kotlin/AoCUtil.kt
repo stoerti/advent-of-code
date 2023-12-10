@@ -48,6 +48,6 @@ object StringExt {
   fun String.splitTrimmed(splitter: String): List<String> =
     this.split(splitter).map { it.trim() }.filterNot(String::isEmpty)
 
-  fun String.intValues() = this.split("\\D".toRegex()).map { it.trim() }.filterNot { it.isBlank() }.map { it.toInt() }
-  fun String.longValues() = this.split("\\D".toRegex()).map { it.trim() }.filterNot { it.isBlank() }.map { it.toLong() }
+  fun String.intValues() = this.split("[^\\-0-9]".toRegex()).map { it.trim() }.filterNot { it.isBlank() }.map { it.toInt() }
+  fun String.longValues() = this.split("[^\\-0-9]".toRegex()).map { it.trim() }.filterNot { it.isBlank() }.map { it.toLong() }
 }
